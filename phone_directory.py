@@ -105,7 +105,14 @@ def find_contact_by_criteria(phoneDirectory, criteria):
         return found_contacts
 
 
-def copy_contact(from_path, to_path, line_number):
+def copy_contact(from_path, to_path):
+    while True:
+        try:
+            line_number = int(input("Введите номер строки для копирования: "))
+            if type(line_number) == int:
+                break
+        except ValueError:
+            print('Пожалуйста, введите число!')
     with open(from_path, 'r', encoding='utf-8') as from_file:
         lines = from_file.readlines()
     with open(to_path, 'a', encoding='utf-8') as to_file:
@@ -133,9 +140,8 @@ def main():
         elif x == "3":
             find_contact(phoneDirectory)
         elif x == "4":
-            print("Введите номер строки для копирования:")
-            line_number = int(input())
-            copy_contact(__path__, 'newPhoneDirectory.txt', line_number)
+            
+            copy_contact(__path__, 'newPhoneDirectory.txt')
         else:
             print("неверная команда")
 
