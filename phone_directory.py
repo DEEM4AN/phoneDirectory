@@ -102,7 +102,7 @@ def find_contact_by_criteria(phoneDirectory, criteria):
         )
         if matches_criteria:
             found_contacts.append(contacts)
-        return found_contacts
+    return found_contacts
 
 
 def copy_contact(from_path, to_path):
